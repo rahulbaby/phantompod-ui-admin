@@ -25,26 +25,20 @@ export const authenticated = (data) => (dispatch) => {
   });
 };
 
-export const singOut = () => (dispatch) => {
-  localStorage.removeItem('token');
+export const singOut = () => async (dispatch) => {
+  await localStorage.removeItem(AUTH_TOKEN_KEY);
   return dispatch({
     type: UNAUTHENTICATED,
   });
-  /*
-	return instance.get( SIGN_OUT_API )
-		.then(res=>{
-			return dispatch({
-			   type : UNAUTHENTICATED,
-			})
-		})
-	*/
 };
+
 
 export const checkUser = () => (dispatch) => {
   return instance.post(CHECK_USER_API).then((res) => {
     if (res.user && res.user.role === 'admin')
       return dispatch({
         type: AUTHENTICATED,
+        payload : res.user
       });
     else
       return dispatch({

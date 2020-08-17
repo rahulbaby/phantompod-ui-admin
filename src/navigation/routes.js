@@ -5,6 +5,7 @@ import Dashboard from 'modules/dashboard';
 import Users from 'modules/user';
 import Login from 'modules/auth';
 import Payments from 'modules/payments';
+import Settings from 'modules/settings';
 
 import Lab from 'lab';
 
@@ -12,7 +13,7 @@ const routes = [
   {
     path: '/',
     exact: true,
-    component: Dashboard,
+    component: Users,
   },
   {
     path: '/login',
@@ -21,6 +22,10 @@ const routes = [
   {
     path: '/users',
     component: Users,
+  },
+  {
+    path: '/settings',
+    component: Settings,
   },
   {
     path: '/payments',

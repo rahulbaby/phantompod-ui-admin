@@ -10,6 +10,7 @@ import {
   Dashboard,
   Group,
   Receipt,
+  Settings,
   PowerSettingsNew,
 } from '@material-ui/icons';
 
@@ -38,10 +39,9 @@ export const MainListItems = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <LinkCustom activeOnlyWhenExact to="/" label="Dashboard" linkIcon={<Dashboard />} />
       <LinkCustom to="/payments" label="Payments" linkIcon={<Receipt />} />
       <LinkCustom to="/users" label="Users" linkIcon={<Group />} />
-
+      <LinkCustom to="/settings" label="Settings" linkIcon={<Settings />} />
       <ListItem
         button
         color="primary"

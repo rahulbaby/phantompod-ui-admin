@@ -6,6 +6,7 @@ let initialState = {
   isLoading: true,
   authenticated: false,
   error: false,
+  user : {}
 };
 
 let lastFetchValid;
@@ -35,6 +36,7 @@ const moduleReducer = (state = initialState, action) => {
         ...state,
         authenticated: true,
         isLoading: false,
+        user : action.payload
       };
     case `${UNAUTHENTICATED}`:
       return {
