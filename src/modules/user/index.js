@@ -1,6 +1,7 @@
 import React, { Component, useRef, Fragment, useState, useEffect } from 'react';
 import { createSelector } from 'reselect';
 import { useSelector, useDispatch } from 'react-redux';
+import moment from 'moment'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -35,7 +36,7 @@ const statusFormatter = row =>{
     if( row.status === 'trial' ) return  (
       <React.Fragment>
         <Typography color="textSecondary" >TRIAL</Typography>
-        <Typography>{isoToFormatted( row.trialDetails.expiresAt , 'D MMM YYYY' )}</Typography>
+        <Typography> {moment.unix(row.trialDetails.expiresAt).format('DD MMM YYYY ')}</Typography>
       </React.Fragment>
     )
 
@@ -45,7 +46,7 @@ return  (
             color : row.status === 'active' ?  'green' : 'teal',
             fontWeight : row.status === 'active' ?  700 : 500
         }} >{row.status.toUpperCase()}</Typography>
-        <Typography>{isoToFormatted( row.paymentExpiresAt , 'D MMM YYYY' )}</Typography>
+        <Typography>{moment.unix(row.paymentExpiresAt).format('DD MMM YYYY ')}</Typography>
       </React.Fragment>
     )
 }
