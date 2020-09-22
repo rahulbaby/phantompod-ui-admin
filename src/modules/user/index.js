@@ -52,7 +52,7 @@ return  (
 }
 
 const cols = [
-  { label: 'Name', key: 'name' },
+  { label: 'Name', key: 'name' , formatter : x=><Typography color="primary" >{x.name}</Typography> },
   { label: 'Email', key: 'email' },
   { label: 'Account', key: 'status' , formatter : statusFormatter },
   { label: 'Join Date', key: 'createdAt' , formatter : row => isoToFormatted( row.createdAt , 'D MMM YYYY' ) }
